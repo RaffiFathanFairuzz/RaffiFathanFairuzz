@@ -1,0 +1,22 @@
+Public Class FormLogin
+
+    Private Sub FormLogin_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        usernametxt.Focus()
+        passtxt.UseSystemPasswordChar = True
+    End Sub
+
+    Private Sub loginbtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles loginbtn.Click
+        If usernametxt.Text = "" And passtxt.Text = "" Then
+            MsgBox("username dan password harus terisi!", MsgBoxStyle.Exclamation, "warning!")
+        ElseIf usernametxt.Text = "Raffi Fathan" And passtxt.Text = "1108" Then
+            FormDaftarFilm.Visible = True
+            Me.Hide()
+        Else
+            MsgBox("username atau password salah!", MsgBoxStyle.Critical, "Incorrect")
+        End If
+    End Sub
+
+    Private Sub cancelbtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cancelbtn.Click
+        Me.Close()
+    End Sub
+End Class
