@@ -1,0 +1,175 @@
+Public Class FormMenu
+
+    Public tiket As String
+    Public cinema As String
+    Public day As String
+    Public tanggal As Date
+    Public studio As String
+    Public seat1 As String
+    Public seat2 As String
+    Public jam As String
+    Public jmlharga As String
+    Public harga1 As String
+    Public film As String
+
+
+    Private Sub FormMenu_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        cinemacmb.Items.Add("Transmart Buah Batu")
+        cinemacmb.Items.Add("The Matix Mall")
+        cinemacmb.Items.Add("Braga Mall")
+        cinemacmb.Items.Add("Citilink Mall")
+
+        Dim kursi2 As Integer
+        For kursi2 = 1 To 10
+            seatcmb2.Items.Add(kursi2)
+        Next kursi2
+
+        seatcmb1.Items.Add("A")
+        seatcmb1.Items.Add("B")
+        seatcmb1.Items.Add("C")
+        seatcmb1.Items.Add("D")
+        seatcmb1.Items.Add("E")
+        seatcmb1.Items.Add("F")
+        seatcmb1.Items.Add("G")
+        seatcmb1.Items.Add("H")
+        seatcmb1.Items.Add("I")
+        seatcmb1.Items.Add("J")
+
+        timecmb.Items.Add("10.00 WIB")
+        timecmb.Items.Add("12.00 WIB")
+        timecmb.Items.Add("14.00 WIB")
+        timecmb.Items.Add("14.30 WIB")
+        timecmb.Items.Add("17.00 WIB")
+
+        daycmb.Items.Add("Senin")
+        daycmb.Items.Add("Selasa")
+        daycmb.Items.Add("Rabu")
+        daycmb.Items.Add("Kamis")
+        daycmb.Items.Add("Jumat")
+        daycmb.Items.Add("Sabtu")
+        daycmb.Items.Add("Minggu")
+
+        filmcmb.Items.Add("The Marvels")
+        filmcmb.Items.Add("Doctor Strange")
+        filmcmb.Items.Add("Deadpool")
+        filmcmb.Items.Add("High and Low : The Worst Cross X")
+        filmcmb.Items.Add("Gran Turismo")
+        filmcmb.Items.Add("Lampir")
+
+        tiket = tickettxt.Text
+        tanggal = DateTimePicker1.Text
+        studio = studiotxt.Text
+        seat1 = seatcmb1.Text
+        seat2 = seatcmb2.Text
+        day = daycmb.Text
+        cinema = cinemacmb.Text
+        jam = timecmb.Text
+        harga1 = hargasatuantxt.Text
+        jumlahhargatxt.Text = (Val(tickettxt.Text)) = (Val(hargasatuantxt.Text))
+
+        filmcmb.Focus()
+    End Sub
+
+    Private Sub cinemacmb_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cinemacmb.SelectedIndexChanged
+        Select Case cinemacmb.Text
+            Case "Transmart Buah Batu"
+                studiotxt.Text = "5"
+                cinema = "Transmart Buah Batu"
+            Case "The Matix Mall"
+                studiotxt.Text = "3"
+                cinema = "The Matix Mall"
+            Case "Braga Mall"
+                studiotxt.Text = "2"
+                cinema = "Braga Mall"
+            Case "Citilink Mall"
+                studiotxt.Text = "4"
+                cinema = "Citilink Mall"
+        End Select
+    End Sub
+
+    Private Sub studiotxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles studiotxt.TextChanged
+        studio = studiotxt.Text
+    End Sub
+
+    Private Sub daycmb_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles daycmb.SelectedIndexChanged
+        Select Case daycmb.Text
+            Case "Senin"
+                hargasatuantxt.Text = 35000
+                harga1 = 35000
+                day = "Senin"
+            Case "Selasa"
+                hargasatuantxt.Text = 35000
+                harga1 = 35000
+                day = "Selasa"
+            Case "Rabu"
+                hargasatuantxt.Text = 35000
+                harga1 = 35000
+                day = "Rabu"
+            Case "Kamis"
+                hargasatuantxt.Text = 35000
+                harga1 = 35000
+                day = "Kamis"
+            Case "Jumat"
+                hargasatuantxt.Text = 35000
+                harga1 = 35000
+                day = "Jumat"
+            Case "Sabtu"
+                hargasatuantxt.Text = 45000
+                harga1 = 45000
+                day = "Sabtu"
+            Case "Minggu"
+                hargasatuantxt.Text = 45000
+                harga1 = 45000
+                day = "Minggu"
+        End Select
+    End Sub
+
+    Private Sub jumlahhargatxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles jumlahhargatxt.TextChanged
+        jumlahhargatxt.Text = (Val(tickettxt.Text)) * (Val(hargasatuantxt.Text))
+    End Sub
+
+    Private Sub checkbtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles checkbtn.Click
+        tiket = tickettxt.Text
+        tanggal = DateTimePicker1.Text
+        studio = studiotxt.Text
+        seat1 = seatcmb1.Text
+        seat2 = seatcmb2.Text
+        day = daycmb.Text
+        cinema = cinemacmb.Text
+        jam = timecmb.Text
+        jmlharga = harga1 * tiket
+        jmlharga = jumlahhargatxt.Text
+        harga1 = hargasatuantxt.Text
+        jmlharga = (Val(tickettxt.Text)) * (Val(hargasatuantxt.Text))
+        film = filmcmb.Text
+        FormDetailPesanan.Visible = True
+        Me.Hide()
+
+    End Sub
+
+
+    Private Sub seatcmb1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles seatcmb1.SelectedIndexChanged
+        seat1 = seatcmb1.Text
+    End Sub
+
+    Private Sub seatcmb2_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles seatcmb2.SelectedIndexChanged
+        seat2 = seatcmb2.Text
+    End Sub
+
+    Private Sub timecmb_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles timecmb.SelectedIndexChanged
+        jam = timecmb.Text
+    End Sub
+
+
+    Private Sub hargasatuantxt_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles hargasatuantxt.TextChanged
+        harga1 = hargasatuantxt.Text
+    End Sub
+
+    Private Sub cancelbtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cancelbtn.Click
+        Me.Close()
+    End Sub
+
+    Private Sub filmcmb_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles filmcmb.SelectedIndexChanged
+        film = filmcmb.Text
+    End Sub
+End Class
