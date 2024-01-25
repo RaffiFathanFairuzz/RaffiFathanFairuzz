@@ -1,0 +1,22 @@
+Public Class FormDetailPesanan
+
+    Private Sub FormDetailPesanan_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Label1.Text = FormMenu.tiket
+        Label2.Text = FormMenu.cinema
+        Label03.Text = FormMenu.studio
+        Label4.Text = FormMenu.seat1
+        Label05.Text = FormMenu.seat2
+        Label06.Text = FormMenu.tanggal
+        Label07.Text = FormMenu.day
+        Label08.Text = FormMenu.jam
+        Label09.Text = FormMenu.harga1
+        price.Text = FormMenu.jmlharga
+        film.Text = FormMenu.film
+    End Sub
+
+
+    Private Sub buybtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buybtn.Click
+        Me.Close()
+        MsgBox("Buy Ticket Success!", MsgBoxStyle.OkOnly, "Details")
+    End Sub
+End Class
